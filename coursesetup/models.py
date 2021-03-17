@@ -120,6 +120,7 @@ class Videos(models.Model):
 class Modules(models.Model):
     id = models.AutoField
     module_name = models.CharField(max_length=100)
+    isFree=models.BooleanField(default=False)
     all_videos=models.ManyToManyField(Videos,blank=True)
     all_articles=models.ManyToManyField(Articles,blank=True)
     all_practice = models.ManyToManyField(Practice,blank=True)
@@ -134,7 +135,10 @@ class Modules(models.Model):
 class CreateCourse(models.Model):
     id = models.AutoField
     course_name = models.CharField(max_length=100)
+    description=models.CharField(max_length=2000,default="")
+    image=models.URLField(default="")
     all_modules=models.ManyToManyField(Modules)
+
 
 
     def __str__(self):
