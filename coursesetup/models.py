@@ -109,6 +109,7 @@ class Articles(models.Model):
 
 class Videos(models.Model):
     id = models.AutoField
+    description = models.CharField(max_length=2000, default="")
     videos_name=models.CharField(max_length=100)
     videos=models.URLField()
 
